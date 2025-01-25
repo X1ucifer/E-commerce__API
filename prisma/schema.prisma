@@ -1,0 +1,95 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Role {
+  id          Int    @id @default(autoincrement())
+  name        String @unique
+  description String
+  users       User[]
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  roleId    Int?
+  role      Role?    @relation(fields: [roleId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  vendor    Vendor?
+  staff     Staff?
+}
+
+model Vendor {
+  id           Int            @id @default(autoincrement())
+  userId       Int            @unique
+  storeName    String
+  description  String
+  user         User           @relation(fields: [userId], references: [id])
+  staff        Staff[]
+  products     Product[]
+  StaffProduct StaffProduct[]
+}
+
+model Staff {
+  id            Int            @id @default(autoincrement())
+  userId        Int            @unique
+  department    String
+  position      String
+  firstName     String
+  lastName      String
+  gender        String
+  user          User           @relation(fields: [userId], references: [id])
+  vendor        Vendor?        @relation(fields: [vendorId], references: [id])
+  vendorId      Int?
+  staffProducts StaffProduct[]
+}
+
+model Product {
+  id             Int            @id @default(autoincrement())
+  name           String
+  category       String
+  description    String
+  startDate      DateTime
+  expiryDate     DateTime
+  deliveryOption Boolean
+  deliveryAmount Float?
+  oldPrice       Float
+  newPrice       Float
+  url            String         @unique
+  images         ProductImage[]
+  vendorId       Int            @default(1)
+  vendor         Vendor         @relation(fields: [vendorId], references: [id])
+  StaffProduct   StaffProduct[]
+}
+
+model ProductImage {
+  id        Int     @id @default(autoincrement())
+  url       String
+  productId Int
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model StaffProduct {
+  id        Int     @id @default(autoincrement())
+  staffId   Int
+  productId Int
+  vendorId  Int
+  canView   Boolean @default(true)
+  canEdit   Boolean @default(false)
+  staff     Staff   @relation(fields: [staffId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+  vendor    Vendor  @relation(fields: [vendorId], references: [id])
+}
