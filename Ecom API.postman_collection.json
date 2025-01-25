@@ -1,0 +1,631 @@
+{
+	"info": {
+		"_postman_id": "0006392e-1888-4ee3-9cc8-bc4fc02d831b",
+		"name": "Ecom API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17063698",
+		"_collection_link": "https://akatzuki-team.postman.co/workspace/My-Workspace~950d0b2b-2fbe-4af2-842c-2137aa8d3f4d/collection/17063698-0006392e-1888-4ee3-9cc8-bc4fc02d831b?action=share&source=collection_link&creator=17063698"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"akhil\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"akhil-vendor\",\r\n    \"password\": \"12345678\",\r\n    \"storeName\": \"demo store\",\r\n    \"description\": \"new\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/vendor-registration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"vendor-registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"akhil\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product by Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM3ODQzMjc1LCJleHAiOjE3Mzc4NDY4NzV9.9ymLqR8WjVHw6W0FHBKK5-Jtafulq_siWj8992FM4Bk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "sample",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Electronics",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "A high-quality product.",
+							"type": "text"
+						},
+						{
+							"key": "startDate",
+							"value": "2025-02-01",
+							"type": "text"
+						},
+						{
+							"key": "deliveryOption",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "deliveryAmount",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "oldPrice",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "newPrice",
+							"value": "800",
+							"type": "text"
+						},
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1efdb61f-2ad0-4270-9536-a9f11f4f89be",
+								"/C:/Users/Admin/Downloads/pexels-sound-on-3756863 (1).jpg"
+							]
+						},
+						{
+							"key": "vendorId",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product by Staff",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzM3ODQ0OTEyLCJleHAiOjE3Mzc4NDg1MTJ9.tD9bk_t_UgkGjdSJrqkppKnHRDsYTaXWwYnnhKdeuok",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "sample",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Electronics",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "A high-quality product.",
+							"type": "text"
+						},
+						{
+							"key": "startDate",
+							"value": "2025-02-01",
+							"type": "text"
+						},
+						{
+							"key": "deliveryOption",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "deliveryAmount",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "oldPrice",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "newPrice",
+							"value": "800",
+							"type": "text"
+						},
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1efdb61f-2ad0-4270-9536-a9f11f4f89be",
+								"/C:/Users/Admin/Downloads/pexels-sound-on-3756863 (1).jpg"
+							]
+						},
+						{
+							"key": "vendorId",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/staff/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"staff",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product by Vendor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6MywiaWF0IjoxNzM3ODQ2OTU4LCJleHAiOjE3Mzc4NTA1NTh9.j0rLc5OmsejFcEjdkdVT107t5K7J5BgY-h4ZeSOYd6o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "sample",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Electronics",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "A high-quality product.",
+							"type": "text"
+						},
+						{
+							"key": "startDate",
+							"value": "2025-02-01",
+							"type": "text"
+						},
+						{
+							"key": "deliveryOption",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "deliveryAmount",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "oldPrice",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "newPrice",
+							"value": "800",
+							"type": "text"
+						},
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1efdb61f-2ad0-4270-9536-a9f11f4f89be",
+								"/C:/Users/Admin/Downloads/pexels-sound-on-3756863 (1).jpg"
+							]
+						},
+						{
+							"key": "vendorId",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/vendor/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"vendor",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Staff",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM3ODQzMjc1LCJleHAiOjE3Mzc4NDY4NzV9.9ymLqR8WjVHw6W0FHBKK5-Jtafulq_siWj8992FM4Bk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"staffuser\",\r\n  \"password\": \"password123\",\r\n  \"department\": \"Sales\",\r\n  \"position\": \"Manager\",\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"gender\": \"Male\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/create-staff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"create-staff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign staff permission",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM3ODQzMjc1LCJleHAiOjE3Mzc4NDY4NzV9.9ymLqR8WjVHw6W0FHBKK5-Jtafulq_siWj8992FM4Bk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"staffId\": 1,\r\n  \"vendorId\": 1,\r\n  \"productId\": 4,\r\n  \"canView\": true,\r\n  \"canEdit\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/assign-staff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"assign-staff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM3ODQzMjc1LCJleHAiOjE3Mzc4NDY4NzV9.9ymLqR8WjVHw6W0FHBKK5-Jtafulq_siWj8992FM4Bk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Staff products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzM3ODQ0OTEyLCJleHAiOjE3Mzc4NDg1MTJ9.tD9bk_t_UgkGjdSJrqkppKnHRDsYTaXWwYnnhKdeuok",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/staff/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"staff",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all user products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6NCwiaWF0IjoxNzM3ODQ4MDk1LCJleHAiOjE3Mzc4NTE2OTV9.fd7s7PD1Wv0ry5-zCQyK66QkkJc6LBhoBfGf9_dg8yo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get vendor products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6MywiaWF0IjoxNzM3ODQ2OTU4LCJleHAiOjE3Mzc4NTA1NTh9.j0rLc5OmsejFcEjdkdVT107t5K7J5BgY-h4ZeSOYd6o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/vendor/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"vendor",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All vendors",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM3ODQzMjc1LCJleHAiOjE3Mzc4NDY4NzV9.9ymLqR8WjVHw6W0FHBKK5-Jtafulq_siWj8992FM4Bk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/vendors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"vendors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products/search?page=1&limit=10&searchQuery=sam",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						"search"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "searchQuery",
+							"value": "sam"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
